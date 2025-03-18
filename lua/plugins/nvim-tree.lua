@@ -18,5 +18,6 @@ return {
         side = 'right',
       },
     }
+    vim.keymap.set('n', '<C-\\>', '<cmd>NvimTreeToggle<CR>')
   end,
 }

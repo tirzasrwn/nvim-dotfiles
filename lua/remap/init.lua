@@ -22,15 +22,6 @@ vim.keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
 vim.keymap.set('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
 vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
 
--- Keybinds to make split navigation easier.
---  Use CTRL+<hjkl> to switch between windows
---
---  See `:help wincmd` for a list of all window commands
-vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
-vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
-vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
-vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
-
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
@@ -92,5 +83,4 @@ vim.keymap.set('n', '<leader>lc', vim.lsp.buf.code_action, { desc = 'code_action
 vim.keymap.set('n', '<leader>lr', vim.lsp.buf.references, { desc = 'references' })
 vim.keymap.set('n', '<leader>ln', vim.lsp.buf.rename, { desc = 'rename' })
 vim.keymap.set('n', '<leader>lf', vim.lsp.buf.format, { desc = 'format' })
-vim.keymap.set('i', '<C-h>', vim.lsp.buf.signature_help, { desc = 'signature_help' })
-vim.keymap.set('n', '<C-n>', '<cmd>NvimTreeToggle<CR>')
+vim.keymap.set('i', '<leader>lh', vim.lsp.buf.signature_help, { desc = 'signature_help' })
