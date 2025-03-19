@@ -195,11 +195,13 @@ return {
     --  - settings (table): Override the default settings passed when initializing the server.
     --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
     local servers = {
-      html = {},
-      cssls = {},
-      ts_ls = {},
+      bashls = {},
       clangd = {},
-      jdtls = {},
+      cssls = {},
+      docker_compose_language_service = {},
+
+      gofumpt = {},
+      goimports = {},
       gopls = {
         settings = {
           gopls = {
@@ -211,7 +213,11 @@ return {
           },
         },
       },
+
+      html = {},
       intelephense = {},
+      jdtls = {},
+
       lua_ls = {
         -- cmd = { ... },
         -- filetypes = { ... },
@@ -226,6 +232,17 @@ return {
           },
         },
       },
+
+      marksman = {},
+      prettier = {},
+      prismals = {},
+      rust_analyzer = {},
+      shfmt = {},
+      stylua = {},
+      taplo = {},
+      texlab = {},
+      ts_ls = {},
+      zls = {},
     }
 
     -- Ensure the servers and tools above are installed

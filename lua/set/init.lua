@@ -28,9 +28,9 @@ vim.opt.showmode = false
 --  Schedule the setting after `UiEnter` because it can increase startup-time.
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
-vim.schedule(function()
-  vim.opt.clipboard = 'unnamedplus'
-end)
+-- vim.schedule(function()
+--   vim.opt.clipboard = 'unnamedplus'
+-- end)
 
 -- Enable break indent
 vim.opt.breakindent = true
@@ -87,8 +87,6 @@ vim.opt.expandtab = true
 vim.opt.smartindent = true
 
 vim.opt.wrap = false
-
-vim.opt.termguicolors = true
 
 -- Disable netrw.
 vim.g.loaded_netrw = 1

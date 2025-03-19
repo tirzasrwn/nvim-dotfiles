@@ -15,7 +15,7 @@ return {
         y = 0.4, -- Y axis of the terminal window
       },
     }
-    vim.keymap.set('n', '<A-i>', '<CMD>lua require("FTerm").toggle()<CR>')
-    vim.keymap.set('t', '<A-i>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>')
+    vim.keymap.set('n', '<C-a>', '<CMD>lua require("FTerm").toggle()<CR>')
+    vim.keymap.set('t', '<C-a>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>')
   end,
 }
