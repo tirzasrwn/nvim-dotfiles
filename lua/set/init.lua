@@ -70,29 +70,39 @@ vim.opt.cursorline = true
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
 
--- more set
-
--- Disable cursor styling.
+-- Disable cursor styling
 vim.opt.guicursor = ''
 
--- Set linenumber format.
+-- Enable line numbers
 vim.opt.nu = true
+-- Show absolute line numbers
 vim.opt.relativenumber = true
+-- Show relative line numbers
 
+-- Set tab and indentation settings
 vim.opt.tabstop = 4
+-- Number of spaces that a <Tab> counts for
 vim.opt.softtabstop = 4
+-- Number of spaces that a <Tab> counts for while editing
 vim.opt.shiftwidth = 4
+-- Number of spaces to use for each step of (auto)indent
 vim.opt.expandtab = true
+-- Use spaces instead of tabs
 
+-- Enable smart indentation
 vim.opt.smartindent = true
+-- Automatically insert indents based on syntax
 
+-- Disable line wrapping
 vim.opt.wrap = false
+-- Do not wrap long lines
 
--- Disable netrw.
+-- Disable netrw (file explorer)
 vim.g.loaded_netrw = 1
+-- Prevent loading netrw
 vim.g.loaded_netrwPlugin = 1
--- vim.g.netrw_banner = 0
--- vim.g.netrw_winsize = 15
+-- Prevent loading netrw plugin
 
--- Disable always copy to system clipboard.
+-- Disable always copy to system clipboard
 vim.o.clipboard = ''
+-- Do not use the system clipboard for copying

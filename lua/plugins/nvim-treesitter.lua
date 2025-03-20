@@ -21,6 +21,7 @@ return {
           'gomod',
           'html',
           'ini',
+          'kotlin',
           'java',
           'javascript',
           'json',

@@ -18,12 +18,12 @@ return { -- Autocompletion
         -- `friendly-snippets` contains a variety of premade snippets.
         --    See the README about individual language/framework/plugin snippets:
         --    https://github.com/rafamadriz/friendly-snippets
-        -- {
-        --   'rafamadriz/friendly-snippets',
-        --   config = function()
-        --     require('luasnip.loaders.from_vscode').lazy_load()
-        --   end,
-        -- },
+        {
+          'rafamadriz/friendly-snippets',
+          config = function()
+            require('luasnip.loaders.from_vscode').lazy_load()
+          end,
+        },
       },
     },
     'saadparwaiz1/cmp_luasnip',
@@ -39,6 +39,11 @@ return { -- Autocompletion
     -- See `:help cmp`
     local cmp = require 'cmp'
     local luasnip = require 'luasnip'
+
+    -- extend file type, for example when it open php, it will also show
+    -- html snippets
+    luasnip.filetype_extend('php', { 'html' })
+
     luasnip.config.setup {}
 
     cmp.setup {
