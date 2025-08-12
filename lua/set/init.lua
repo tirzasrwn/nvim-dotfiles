@@ -58,8 +58,8 @@ vim.opt.splitbelow = true
 -- Sets how neovim will display certain whitespace characters in the editor.
 --  See `:help 'list'`
 --  and `:help 'listchars'`
-vim.opt.list = true
-vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+-- vim.opt.list = true
+-- vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
 -- Preview substitutions live, as you type!
 vim.opt.inccommand = 'split'
@@ -106,3 +106,5 @@ vim.g.loaded_netrwPlugin = 1
 -- Disable always copy to system clipboard
 vim.o.clipboard = ''
 -- Do not use the system clipboard for copying
+
+vim.o.background = 'light'

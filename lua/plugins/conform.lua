@@ -26,7 +26,7 @@ return { -- Autoformat
         lsp_format_opt = 'fallback'
       end
       return {
-        timeout_ms = 500,
+        timeout_ms = 1000,
         lsp_format = lsp_format_opt,
       }
     end,
@@ -34,8 +34,9 @@ return { -- Autoformat
       lua = { 'stylua' },
 
       javascript = { 'prettier' },
+      typescript = { 'prettier' },
       css = { 'prettier' },
-      html = { 'prettier' },
+      html = { 'prettierd', 'prettier', stop_after_first = true },
       json = { 'prettier' },
       markdown = { 'prettier' },
       yaml = { 'prettier' },
@@ -43,6 +44,8 @@ return { -- Autoformat
       sh = { 'shfmt' },
       go = { 'goimports', 'gofumpt' },
       sql = { 'sql_formatter' },
+      blade = { 'blade-formatter' },
+
       -- Conform can also run multiple formatters sequentially
       -- python = { "isort", "black" },
       --

@@ -217,7 +217,7 @@ return {
       html = {},
       intelephense = {},
       jdtls = {},
-      kotlin_language_server = {},
+      lemminx = {},
       lua_ls = {
         -- cmd = { ... },
         -- filetypes = { ... },
