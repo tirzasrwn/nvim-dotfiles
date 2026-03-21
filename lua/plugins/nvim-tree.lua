@@ -16,8 +16,9 @@ return {
       },
       view = {
         side = 'right',
+        width = 70,
       },
     }
-    vim.keymap.set('n', '<C-\\>', '<cmd>NvimTreeToggle<CR>')
+    vim.keymap.set('n', '<leader><leader>', '<cmd>NvimTreeToggle<CR>')
   end,
 }

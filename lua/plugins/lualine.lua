@@ -3,10 +3,10 @@ return {
   'nvim-lualine/lualine.nvim',
   -- See `:help lualine.txt`
   config = function()
-    require('lualine').setup({
+    require('lualine').setup {
       options = {
         icons_enabled = true,
-        theme = 'catppuccin',
+        theme = 'auto',
         component_separators = '|',
         section_separators = '',
         disabled_filetypes = {
@@ -15,7 +15,7 @@ return {
           'diff',
           'undotree',
         },
-      }
-    })
+      },
+    }
   end,
 }
