@@ -1,4 +1,3 @@
-require 'set'
-require 'remap'
+require 'config.options'
+require 'config.keymaps'
 require 'config.lazy'
-print 'Hello, world!'

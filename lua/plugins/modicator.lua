@@ -1,10 +1,6 @@
 return {
   'mawkler/modicator.nvim',
   lazy = false,
-  dependencies = {
-    'catppuccin/nvim',
-    name = 'catppuccin',
-  }, -- Add your colorscheme plugin here
   init = function()
     -- These are required for Modicator to work
     vim.o.cursorline = true
@@ -12,7 +8,7 @@ return {
     vim.o.termguicolors = true
   end,
   config = function()
-    require('modicator').setup({
+    require('modicator').setup {
       -- Show warning if any required option is missing
       show_warnings = true,
       highlights = {
@@ -31,6 +27,6 @@ return {
           highlight = 'bg',
         },
       },
-    })
-  end
+    }
+  end,
 }
