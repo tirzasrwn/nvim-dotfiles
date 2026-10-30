@@ -80,6 +80,7 @@ check('bufferline', pcall(require, 'bufferline'))
 check('mini.pairs', pcall(require, 'mini.pairs'))
 check('mini.ai', pcall(require, 'mini.ai'))
 check('spell toggle', desc('n', '<leader>tz') ~= '')
+check('nvimtree toggle', desc('n', '<C-\\>') == 'Toggle NvimTree', desc('n', '<C-\\>'))
 
 -- tool eksternal
 check('tectonic', vim.fn.executable 'tectonic' == 1)
