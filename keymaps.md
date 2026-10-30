@@ -2,6 +2,23 @@
 
 Di-generate `tests/gen-keymaps.lua`; jangan edit manual.
 
+## Terminal
+
+| Key | Aksi | Deskripsi |
+| --- | ---- | --------- |
+| `<lt>C-A>` | `(lua)` | Toggle terminal float |
+| `<lt>Esc><lt>Esc>` | `<C-\><C-N>` | Exit terminal mode |
+
+## Insert
+
+| Key | Aksi | Deskripsi |
+| --- | ---- | --------- |
+| `<lt>C-S>` | `(lua)` | vim.lsp.buf.signature_help() |
+| `<lt>S-Tab>` | `(lua)` | vim.snippet.jump if active, otherwise <S-Tab> |
+| `<lt>Tab>` | `(lua)` | vim.snippet.jump if active, otherwise <Tab> |
+| `jj` | `<Esc>` |  |
+| `jk` | `<Esc>` |  |
+
 ## Visual
 
 | Key | Aksi | Deskripsi |
@@ -38,33 +55,19 @@ Di-generate `tests/gen-keymaps.lua`; jangan edit manual.
 | `if` | `(lua)` |  |
 | `in` | `(lua)` | Select child (inner) node |
 
-## Terminal
-
-| Key | Aksi | Deskripsi |
-| --- | ---- | --------- |
-| `<lt>C-A>` | `(lua)` | Toggle terminal float |
-| `<lt>Esc><lt>Esc>` | `<C-\><C-N>` | Exit terminal mode |
-
 ## Normal
 
 | Key | Aksi | Deskripsi |
 | --- | ---- | --------- |
-| `<Space>1` | `(lua)` | Harpoon file 1 |
-| `<Space>2` | `(lua)` | Harpoon file 2 |
-| `<Space>3` | `(lua)` | Harpoon file 3 |
-| `<Space>4` | `(lua)` | Harpoon file 4 |
 | `<Space>Jc` | `(lua)` | Java Create Class |
 | `<Space>Je` | `(lua)` | Java Create Enum |
 | `<Space>Ji` | `(lua)` | Java Create Interface |
 | `<Space>Jr` | `(lua)` | Spring Boot Run Project |
 | `<Space>Y` | `"+Y` | Yank line ke clipboard sistem |
-| `<Space>[` | `(lua)` | Harpoon sebelumnya |
-| `<Space>]` | `(lua)` | Harpoon berikutnya |
 | `<Space>a` | `(lua)` | Harpoon tambah file |
 | `<Space>bd` | `(lua)` | Hapus buffer |
 | `<Space>bo` | `(lua)` | Tutup buffer lain |
 | `<Space>d` | `"_d` | Delete ke blackhole register |
-| `<Space>e` | `(lua)` | Harpoon menu |
 | `<Space>f` | `(lua)` | [F]ormat buffer |
 | `<Space>gg` | `(lua)` | LazyGit |
 | `<Space>gs` | `(lua)` | vim.cmd.Git |
@@ -83,11 +86,14 @@ Di-generate `tests/gen-keymaps.lua`; jangan edit manual.
 | `<lt>C-A>` | `(lua)` | Toggle terminal float |
 | `<lt>C-Bslash>` | `<Cmd>NvimTreeToggle<CR>` | Toggle NvimTree |
 | `<lt>C-D>` | `<C-D>zz` |  |
+| `<lt>C-E>` | `(lua)` | Harpoon menu |
 | `<lt>C-F>` | `<Cmd>silent !tmux neww tmux-sessionizer<CR>` | Tmux sessionizer |
-| `<lt>C-H>` | `<C-W>h` | Window kiri |
-| `<lt>C-J>` | `<C-W>j` | Window bawah |
-| `<lt>C-K>` | `<C-W>k` | Window atas |
-| `<lt>C-L>` | `<C-W>l` | Window kanan |
+| `<lt>C-H>` | `(lua)` | Harpoon file 1 |
+| `<lt>C-J>` | `(lua)` | Harpoon file 2 |
+| `<lt>C-K>` | `(lua)` | Harpoon file 3 |
+| `<lt>C-L>` | `(lua)` | Harpoon file 4 |
+| `<lt>C-N>` | `(lua)` | Harpoon berikutnya |
+| `<lt>C-P>` | `(lua)` | Harpoon sebelumnya |
 | `<lt>C-Space>` | `(lua)` | Treesitter select parent |
 | `<lt>C-U>` | `<C-U>zz` |  |
 | `<lt>C-W><lt>C-D>` | `<C-W>d` | Show diagnostics under the cursor |
@@ -96,6 +102,10 @@ Di-generate `tests/gen-keymaps.lua`; jangan edit manual.
 | `<lt>Esc>` | `<Cmd>nohlsearch<CR>` |  |
 | `<lt>Left>` | `<Cmd>echo "Use h to move!!"<CR>` |  |
 | `<lt>M-Space>` | `(lua)` | Treesitter select child |
+| `<lt>M-h>` | `<C-W>h` | Window kiri |
+| `<lt>M-j>` | `<C-W>j` | Window bawah |
+| `<lt>M-k>` | `<C-W>k` | Window atas |
+| `<lt>M-l>` | `<C-W>l` | Window kanan |
 | `<lt>Right>` | `<Cmd>echo "Use l to move!!"<CR>` |  |
 | `<lt>Up>` | `<Cmd>echo "Use k to move!!"<CR>` |  |
 | `G` | `Gzz` |  |
@@ -156,14 +166,4 @@ Di-generate `tests/gen-keymaps.lua`; jangan edit manual.
 | `y<lt>C-G>` | `:<C-U>call setreg(v:register, fugitive#Object(@%))<CR>` |  |
 | `{` | `{zz` |  |
 | `}` | `}zz` |  |
-
-## Insert
-
-| Key | Aksi | Deskripsi |
-| --- | ---- | --------- |
-| `<lt>C-S>` | `(lua)` | vim.lsp.buf.signature_help() |
-| `<lt>S-Tab>` | `(lua)` | vim.snippet.jump if active, otherwise <S-Tab> |
-| `<lt>Tab>` | `(lua)` | vim.snippet.jump if active, otherwise <Tab> |
-| `jj` | `<Esc>` |  |
-| `jk` | `<Esc>` |  |
 
