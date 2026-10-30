@@ -14,6 +14,16 @@ return {
       harpoon.ui:toggle_quick_menu(harpoon:list())
     end, { desc = 'Harpoon menu' })
 
+    -- Tutup menu pakai <C-c>, bukan cuma <Esc>
+    vim.api.nvim_create_autocmd('FileType', {
+      pattern = 'harpoon',
+      callback = function(args)
+        vim.keymap.set('n', '<C-c>', function()
+          harpoon.ui:toggle_quick_menu()
+        end, { buffer = args.buf, silent = true, desc = 'Tutup harpoon' })
+      end,
+    })
+
     for i = 1, 4 do
       vim.keymap.set('n', '<leader>' .. i, function()
         harpoon:list():select(i)

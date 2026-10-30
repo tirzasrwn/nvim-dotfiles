@@ -2,13 +2,6 @@
 
 Di-generate `tests/gen-keymaps.lua`; jangan edit manual.
 
-## Terminal
-
-| Key | Aksi | Deskripsi |
-| --- | ---- | --------- |
-| `<lt>C-A>` | `(lua)` | Toggle terminal float |
-| `<lt>Esc><lt>Esc>` | `<C-\><C-N>` | Exit terminal mode |
-
 ## Visual
 
 | Key | Aksi | Deskripsi |
@@ -45,15 +38,12 @@ Di-generate `tests/gen-keymaps.lua`; jangan edit manual.
 | `if` | `(lua)` |  |
 | `in` | `(lua)` | Select child (inner) node |
 
-## Insert
+## Terminal
 
 | Key | Aksi | Deskripsi |
 | --- | ---- | --------- |
-| `<lt>C-S>` | `(lua)` | vim.lsp.buf.signature_help() |
-| `<lt>S-Tab>` | `(lua)` | vim.snippet.jump if active, otherwise <S-Tab> |
-| `<lt>Tab>` | `(lua)` | vim.snippet.jump if active, otherwise <Tab> |
-| `jj` | `<Esc>` |  |
-| `jk` | `<Esc>` |  |
+| `<lt>C-A>` | `(lua)` | Toggle terminal float |
+| `<lt>Esc><lt>Esc>` | `<C-\><C-N>` | Exit terminal mode |
 
 ## Normal
 
@@ -166,4 +156,14 @@ Di-generate `tests/gen-keymaps.lua`; jangan edit manual.
 | `y<lt>C-G>` | `:<C-U>call setreg(v:register, fugitive#Object(@%))<CR>` |  |
 | `{` | `{zz` |  |
 | `}` | `}zz` |  |
+
+## Insert
+
+| Key | Aksi | Deskripsi |
+| --- | ---- | --------- |
+| `<lt>C-S>` | `(lua)` | vim.lsp.buf.signature_help() |
+| `<lt>S-Tab>` | `(lua)` | vim.snippet.jump if active, otherwise <S-Tab> |
+| `<lt>Tab>` | `(lua)` | vim.snippet.jump if active, otherwise <Tab> |
+| `jj` | `<Esc>` |  |
+| `jk` | `<Esc>` |  |
 
