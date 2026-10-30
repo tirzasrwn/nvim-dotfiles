@@ -36,6 +36,11 @@ opt.smartcase = true
 
 opt.updatetime = 250
 
+-- Konfirmasi saat :q masih ada buffer belum disimpan
+opt.confirm = true
+-- Border seragam untuk semua floating window
+opt.winborder = 'rounded'
+
 -- timeoutlen panjang supaya which-key sempat menunggu 1 detik,
 -- tapi dipersingkat di insert mode agar jk/jj tetap responsif.
 opt.timeoutlen = 1000

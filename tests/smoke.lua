@@ -17,6 +17,8 @@ check('indent', vim.o.expandtab and vim.o.tabstop == 4 and vim.o.shiftwidth == 4
 check('scrolloff', vim.o.scrolloff == 10)
 check('timeoutlen', vim.o.timeoutlen == 1000, vim.o.timeoutlen)
 check('clipboard', vim.o.clipboard == '')
+check('confirm', vim.o.confirm == true)
+check('winborder', vim.o.winborder == 'rounded', vim.o.winborder)
 
 -- 3. colorscheme
 check('colorscheme', vim.g.colors_name == 'catppuccin-macchiato', vim.g.colors_name)
@@ -32,7 +34,7 @@ for name, spec in pairs(plugins) do
 end
 
 -- 5. hanya LSP asli yang masuk lspconfig (0.12: config ada di vim.lsp.config)
-for _, name in ipairs { 'gopls', 'lua_ls', 'ts_ls', 'clangd', 'bashls' } do
+for _, name in ipairs { 'gopls', 'lua_ls', 'ts_ls', 'clangd', 'bashls', 'jsonls', 'yamlls', 'dockerls' } do
   check('lspconfig ' .. name, vim.lsp.config[name] ~= nil)
 end
 for _, name in ipairs { 'prettier', 'shfmt', 'goimports', 'gofumpt' } do
@@ -81,10 +83,15 @@ check('mini.pairs', pcall(require, 'mini.pairs'))
 check('mini.ai', pcall(require, 'mini.ai'))
 check('spell toggle', desc('n', '<leader>tz') ~= '')
 check('nvimtree toggle', desc('n', '<C-\\>') == 'Toggle NvimTree', desc('n', '<C-\\>'))
+check('buffer picker', desc('n', '<leader>sb') ~= '')
 
 -- tool eksternal
 check('tectonic', vim.fn.executable 'tectonic' == 1)
 check('lazygit bin', vim.fn.executable 'lazygit' == 1)
+check('fd', vim.fn.executable 'fd' == 1)
+check('tidy', vim.fn.executable 'tidy' == 1)
+check('sql-formatter', vim.fn.executable 'sql-formatter' == 1)
+check('blade-formatter', vim.fn.executable 'blade-formatter' == 1)
 check('vimtex compiler', vim.g.vimtex_compiler_method == 'tectonic', vim.g.vimtex_compiler_method)
 
 -- 7. semua file lua bisa di-parse

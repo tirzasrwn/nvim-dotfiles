@@ -26,6 +26,7 @@ return {
       html = {},
 
       docker_compose_language_service = {},
+      dockerls = {},
 
       gopls = {
         settings = {
@@ -39,6 +40,7 @@ return {
 
       intelephense = {},
       jdtls = {},
+      jsonls = {},
       lemminx = {},
 
       lua_ls = {
@@ -56,11 +58,12 @@ return {
       taplo = {},
       texlab = {},
       ts_ls = {},
+      yamlls = {},
       zls = {},
     }
 
     -- Tool mason yang bukan LSP (formatter/linter)
-    local tools = { 'gofumpt', 'goimports', 'prettier', 'shfmt', 'stylua' }
+    local tools = { 'gofumpt', 'goimports', 'prettier', 'shfmt', 'stylua', 'sql-formatter', 'blade-formatter' }
 
     vim.lsp.config('*', {
       capabilities = require('blink.cmp').get_lsp_capabilities(),

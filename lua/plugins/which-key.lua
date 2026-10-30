@@ -47,7 +47,6 @@ return { -- Useful plugin to show you pending keybinds.
       { '<leader>b', group = '[B]uffer' },
       { '<leader>c', group = '[C]ode', mode = { 'n', 'x' } },
       { '<leader>d', group = '[D]ocument' },
-      { '<leader>e', group = '[E]dit (harpoon menu)' },
       { '<leader>g', group = '[G]it' },
       { '<leader>h', group = '[H]unk / [H]url' },
       { '<leader>J', group = '[J]ava (spring)' },
