@@ -70,6 +70,21 @@ check('jj escape', vim.fn.maparg('jj', 'i') ~= '')
 check('textobject move', vim.fn.maparg(']m', 'n') ~= '')
 check('textobject select', vim.fn.maparg('if', 'x') ~= '')
 check('terminal toggle', desc('n', '<C-a>') ~= '')
+check('window nav', desc('n', '<C-h>') == 'Window kiri')
+check('harpoon slot', desc('n', '<leader>1') ~= '')
+check('gitsigns hunk', desc('n', ']c') ~= '')
+check('grug-far', desc('n', '<leader>rr') ~= '')
+check('lazygit', desc('n', '<leader>gg') == 'LazyGit')
+check('session save', desc('n', '<leader>qs') ~= '')
+check('bufferline', pcall(require, 'bufferline'))
+check('mini.pairs', pcall(require, 'mini.pairs'))
+check('mini.ai', pcall(require, 'mini.ai'))
+check('spell toggle', desc('n', '<leader>tz') ~= '')
+
+-- tool eksternal
+check('tectonic', vim.fn.executable 'tectonic' == 1)
+check('lazygit bin', vim.fn.executable 'lazygit' == 1)
+check('vimtex compiler', vim.g.vimtex_compiler_method == 'tectonic', vim.g.vimtex_compiler_method)
 
 -- 7. semua file lua bisa di-parse
 local files = vim.fn.globpath(cfg, '{lua,tests}/**/*.lua', false, true)

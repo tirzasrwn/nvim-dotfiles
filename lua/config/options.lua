@@ -25,6 +25,12 @@ opt.breakindent = true
 opt.undofile = true
 opt.inccommand = 'split'
 
+-- Tampilkan karakter tak terlihat (tab, trailing space)
+opt.list = true
+opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+
+opt.spelllang = 'en'
+
 opt.ignorecase = true
 opt.smartcase = true
 

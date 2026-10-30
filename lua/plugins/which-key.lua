@@ -44,12 +44,21 @@ return { -- Useful plugin to show you pending keybinds.
 
     -- Document existing key chains
     spec = {
+      { '<leader>a', group = '[A]dd (harpoon)' },
+      { '<leader>b', group = '[B]uffer' },
       { '<leader>c', group = '[C]ode', mode = { 'n', 'x' } },
       { '<leader>d', group = '[D]ocument' },
-      { '<leader>r', group = '[R]ename' },
+      { '<leader>e', group = '[E]dit (harpoon menu)' },
+      { '<leader>g', group = '[G]it' },
+      { '<leader>h', group = '[H]unk / [H]url' },
+      { '<leader>J', group = '[J]ava (spring)' },
+      { '<leader>l', group = '[L]SP' },
+      { '<leader>q', group = '[Q]uit / session' },
+      { '<leader>r', group = '[R]eplace / rename' },
       { '<leader>s', group = '[S]earch' },
-      { '<leader>w', group = '[W]orkspace' },
       { '<leader>t', group = '[T]oggle' },
+      { '<leader>w', group = '[W]orkspace' },
+      { '<leader>y', group = '[Y]ank' },
     },
   },
 }

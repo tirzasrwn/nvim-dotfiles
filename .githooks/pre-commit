@@ -1,0 +1,13 @@
+#!/bin/sh
+# Jalankan: make hooks
+set -e
+
+STYLUA=${STYLUA:-$HOME/.local/share/nvim/mason/bin/stylua}
+
+if [ -x "$STYLUA" ]; then
+  "$STYLUA" --check lua/ tests/ init.lua
+else
+  echo "pre-commit: stylua tidak ditemukan, lewati cek format"
+fi
+
+nvim --headless -c 'luafile tests/smoke.lua'

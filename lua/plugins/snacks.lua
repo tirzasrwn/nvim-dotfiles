@@ -1,10 +1,16 @@
--- Terminal float. Menggantikan FTerm.nvim yang sudah tidak dirawat.
 return {
   'folke/snacks.nvim',
   priority = 1000,
   lazy = false,
   opts = {
     terminal = { enabled = true },
+    lazygit = { enabled = true },
+    bufdelete = { enabled = true },
+    notifier = { enabled = true, timeout = 2500 },
+    words = { enabled = true },
+    scroll = { enabled = true },
+    input = { enabled = true },
+    session = { enabled = true },
   },
   keys = {
     {
@@ -14,6 +20,34 @@ return {
       end,
       mode = { 'n', 't' },
       desc = 'Toggle terminal float',
+    },
+    {
+      '<leader>gg',
+      function()
+        require('snacks').lazygit()
+      end,
+      desc = 'LazyGit',
+    },
+    {
+      '<leader>bd',
+      function()
+        require('snacks').bufdelete()
+      end,
+      desc = 'Hapus buffer',
+    },
+    {
+      '<leader>qs',
+      function()
+        require('snacks').session.save()
+      end,
+      desc = 'Simpan session',
+    },
+    {
+      '<leader>qr',
+      function()
+        require('snacks').session.load()
+      end,
+      desc = 'Restore session',
     },
   },
 }

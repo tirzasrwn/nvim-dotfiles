@@ -13,6 +13,15 @@ map('n', '<Esc>', '<cmd>nohlsearch<CR>')
 -- Keluar dari terminal mode
 map('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
+-- Navigasi window
+map('n', '<C-h>', '<C-w>h', { desc = 'Window kiri' })
+map('n', '<C-j>', '<C-w>j', { desc = 'Window bawah' })
+map('n', '<C-k>', '<C-w>k', { desc = 'Window atas' })
+map('n', '<C-l>', '<C-w>l', { desc = 'Window kanan' })
+
+-- Ejaan
+map('n', '<leader>tz', '<cmd>setlocal spell!<CR>', { desc = 'Toggle spell' })
+
 -- Panah dimatikan sebagai pengingat pakai hjkl
 map('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
 map('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
