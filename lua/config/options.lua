@@ -36,9 +36,9 @@ opt.smartcase = true
 
 opt.updatetime = 250
 
--- timeoutlen panjang supaya which-key sempat menunggu 2 detik,
+-- timeoutlen panjang supaya which-key sempat menunggu 1 detik,
 -- tapi dipersingkat di insert mode agar jk/jj tetap responsif.
-opt.timeoutlen = 2000
+opt.timeoutlen = 1000
 vim.api.nvim_create_autocmd('InsertEnter', {
   callback = function()
     vim.opt.timeoutlen = 200
@@ -46,7 +46,7 @@ vim.api.nvim_create_autocmd('InsertEnter', {
 })
 vim.api.nvim_create_autocmd('InsertLeave', {
   callback = function()
-    vim.opt.timeoutlen = 2000
+    vim.opt.timeoutlen = 1000
   end,
 })
 
