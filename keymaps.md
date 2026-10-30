@@ -6,7 +6,7 @@ Di-generate `tests/gen-keymaps.lua`; jangan edit manual.
 
 | Key | Aksi | Deskripsi |
 | --- | ---- | --------- |
-| `<lt>C-A>` | `<C-\><C-N><Cmd>lua require("FTerm").toggle()<CR>` |  |
+| `<lt>C-A>` | `(lua)` | Toggle terminal float |
 | `<lt>Esc><lt>Esc>` | `<C-\><C-N>` | Exit terminal mode |
 
 ## Visual
@@ -17,17 +17,43 @@ Di-generate `tests/gen-keymaps.lua`; jangan edit manual.
 | `<Space>d` | `"_d` | Delete ke blackhole register |
 | `<Space>f` | `(lua)` | [F]ormat buffer |
 | `<Space>y` | `"+y` | Yank ke clipboard sistem |
+| `<lt>C-Space>` | `(lua)` | Treesitter select parent |
+| `<lt>M-Space>` | `(lua)` | Treesitter select child |
 | `J` | `:m '>+1<CR>gv=gv` |  |
 | `K` | `:m '<lt>-2<CR>gv=gv` |  |
+| `[M` | `(lua)` |  |
 | `[N` | `(lua)` | Select previous sibling node |
+| `[[` | `(lua)` |  |
+| `[]` | `(lua)` |  |
+| `[m` | `(lua)` |  |
 | `[n` | `(lua)` | Select previous node |
+| `]M` | `(lua)` |  |
 | `]N` | `(lua)` | Select next sibling node |
+| `][` | `(lua)` |  |
+| `]]` | `(lua)` |  |
+| `]m` | `(lua)` |  |
 | `]n` | `(lua)` | Select next node |
+| `aa` | `(lua)` |  |
+| `ac` | `(lua)` |  |
+| `af` | `(lua)` |  |
 | `an` | `(lua)` | Select parent (outer) node |
 | `gc` | `(lua)` | Toggle comment |
 | `gra` | `(lua)` | vim.lsp.buf.code_action() |
 | `gx` | `(lua)` | Opens filepath or URI under cursor with the system handler (file explorer, web browser, …) |
+| `ia` | `(lua)` |  |
+| `ic` | `(lua)` |  |
+| `if` | `(lua)` |  |
 | `in` | `(lua)` | Select child (inner) node |
+
+## Insert
+
+| Key | Aksi | Deskripsi |
+| --- | ---- | --------- |
+| `<lt>C-S>` | `(lua)` | vim.lsp.buf.signature_help() |
+| `<lt>S-Tab>` | `(lua)` | vim.snippet.jump if active, otherwise <S-Tab> |
+| `<lt>Tab>` | `(lua)` | vim.snippet.jump if active, otherwise <Tab> |
+| `jj` | `<Esc>` |  |
+| `jk` | `<Esc>` |  |
 
 ## Normal
 
@@ -50,7 +76,7 @@ Di-generate `tests/gen-keymaps.lua`; jangan edit manual.
 | `<Space>q` | `(lua)` | Open diagnostic [Q]uickfix list |
 | `<Space>u` | `(lua)` | UndotreeToggle |
 | `<Space>y` | `"+y` | Yank ke clipboard sistem |
-| `<lt>C-A>` | `<Cmd>lua require("FTerm").toggle()<CR>` |  |
+| `<lt>C-A>` | `(lua)` | Toggle terminal float |
 | `<lt>C-D>` | `<C-D>zz` |  |
 | `<lt>C-E>` | `(lua)` |  |
 | `<lt>C-F>` | `<Cmd>silent !tmux neww tmux-sessionizer<CR>` | Tmux sessionizer |
@@ -60,12 +86,14 @@ Di-generate `tests/gen-keymaps.lua`; jangan edit manual.
 | `<lt>C-L>` | `(lua)` |  |
 | `<lt>C-N>` | `(lua)` |  |
 | `<lt>C-P>` | `(lua)` |  |
+| `<lt>C-Space>` | `(lua)` | Treesitter select parent |
 | `<lt>C-U>` | `<C-U>zz` |  |
 | `<lt>C-W><lt>C-D>` | `<C-W>d` | Show diagnostics under the cursor |
 | `<lt>C-W>d` | `(lua)` | Show diagnostics under the cursor |
 | `<lt>Down>` | `<Cmd>echo "Use j to move!!"<CR>` |  |
 | `<lt>Esc>` | `<Cmd>nohlsearch<CR>` |  |
 | `<lt>Left>` | `<Cmd>echo "Use h to move!!"<CR>` |  |
+| `<lt>M-Space>` | `(lua)` | Treesitter select child |
 | `<lt>Right>` | `<Cmd>echo "Use l to move!!"<CR>` |  |
 | `<lt>Up>` | `<Cmd>echo "Use k to move!!"<CR>` |  |
 | `G` | `Gzz` |  |
@@ -78,12 +106,16 @@ Di-generate `tests/gen-keymaps.lua`; jangan edit manual.
 | `[B` | `(lua)` | :brewind |
 | `[D` | `(lua)` | Jump to the first diagnostic in the current buffer |
 | `[L` | `(lua)` | :lrewind |
+| `[M` | `(lua)` |  |
 | `[Q` | `(lua)` | :crewind |
 | `[T` | `(lua)` | :trewind |
+| `[[` | `(lua)` |  |
+| `[]` | `(lua)` |  |
 | `[a` | `(lua)` | :previous |
 | `[b` | `(lua)` | :bprevious |
 | `[d` | `(lua)` | Diagnostic prev |
 | `[l` | `(lua)` | :lprevious |
+| `[m` | `(lua)` |  |
 | `[q` | `(lua)` | :cprevious |
 | `[t` | `(lua)` | :tprevious |
 | `]<Space>` | `(lua)` | Add empty line below cursor |
@@ -94,13 +126,16 @@ Di-generate `tests/gen-keymaps.lua`; jangan edit manual.
 | `]B` | `(lua)` | :blast |
 | `]D` | `(lua)` | Jump to the last diagnostic in the current buffer |
 | `]L` | `(lua)` | :llast |
+| `]M` | `(lua)` |  |
 | `]Q` | `(lua)` | :clast |
 | `]T` | `(lua)` | :tlast |
-| `]]` | `]]zz` |  |
+| `][` | `(lua)` |  |
+| `]]` | `(lua)` |  |
 | `]a` | `(lua)` | :next |
 | `]b` | `(lua)` | :bnext |
 | `]d` | `(lua)` | Diagnostic next |
 | `]l` | `(lua)` | :lnext |
+| `]m` | `(lua)` |  |
 | `]q` | `(lua)` | :cnext |
 | `]t` | `(lua)` | :tnext |
 | `gO` | `(lua)` | vim.lsp.buf.document_symbol() |
@@ -117,14 +152,4 @@ Di-generate `tests/gen-keymaps.lua`; jangan edit manual.
 | `y<lt>C-G>` | `:<C-U>call setreg(v:register, fugitive#Object(@%))<CR>` |  |
 | `{` | `{zz` |  |
 | `}` | `}zz` |  |
-
-## Insert
-
-| Key | Aksi | Deskripsi |
-| --- | ---- | --------- |
-| `<lt>C-S>` | `(lua)` | vim.lsp.buf.signature_help() |
-| `<lt>S-Tab>` | `(lua)` | vim.snippet.jump if active, otherwise <S-Tab> |
-| `<lt>Tab>` | `(lua)` | vim.snippet.jump if active, otherwise <Tab> |
-| `jj` | `<Esc>` |  |
-| `jk` | `<Esc>` |  |
 

@@ -24,7 +24,7 @@ check('colorscheme', vim.g.colors_name == 'catppuccin-macchiato', vim.g.colors_n
 -- 4. plugins
 local plugins = require('lazy.core.config').plugins
 local count = vim.tbl_count(plugins)
-check('plugin count', count >= 40, count)
+check('plugin count', count >= 35, count)
 for name, spec in pairs(plugins) do
   if spec.dir and not vim.uv.fs_stat(spec.dir) then
     check('plugin installed', false, name)
@@ -38,6 +38,25 @@ end
 for _, name in ipairs { 'prettier', 'shfmt', 'goimports', 'gofumpt' } do
   check('not an lsp ' .. name, vim.lsp.config[name] == nil)
 end
+check('gopls enabled', vim.lsp.is_enabled 'gopls')
+check('stylua not enabled', not vim.lsp.is_enabled 'stylua')
+
+-- 5b. completion, terminal, treesitter
+check('blink', pcall(require, 'blink.cmp'))
+check('blink capabilities', next(require('blink.cmp').get_lsp_capabilities()) ~= nil)
+check('snacks', pcall(require, 'snacks'))
+check('treesitter', pcall(require, 'nvim-treesitter'))
+
+local parsers = vim.fn.globpath(vim.fn.stdpath 'data' .. '/site/parser', '*.so', false, true)
+check('parsers installed', #parsers >= 30, #parsers)
+
+local tmp = vim.fn.tempname() .. '.lua'
+vim.fn.writefile({ 'local x = 1', 'return x' }, tmp)
+vim.cmd.edit(tmp)
+vim.wait(500)
+check('treesitter active', vim.treesitter.highlighter.active[vim.api.nvim_get_current_buf()] ~= nil)
+check('indentexpr', vim.bo.indentexpr ~= '')
+vim.cmd.bwipeout { bang = true }
 
 -- 6. keymap
 local function desc(mode, lhs)
@@ -48,6 +67,9 @@ check(']d next', desc('n', ']d') == 'Diagnostic next', desc('n', ']d'))
 check('[d prev', desc('n', '[d') == 'Diagnostic prev', desc('n', '[d'))
 check('jk escape', vim.fn.maparg('jk', 'i') ~= '')
 check('jj escape', vim.fn.maparg('jj', 'i') ~= '')
+check('textobject move', vim.fn.maparg(']m', 'n') ~= '')
+check('textobject select', vim.fn.maparg('if', 'x') ~= '')
+check('terminal toggle', desc('n', '<C-a>') ~= '')
 
 -- 7. semua file lua bisa di-parse
 local files = vim.fn.globpath(cfg, '{lua,tests}/**/*.lua', false, true)

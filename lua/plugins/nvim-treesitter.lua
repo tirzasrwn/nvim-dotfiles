@@ -1,108 +1,70 @@
+-- treesitter branch main: highlighting/indent memakai fitur bawaan Neovim,
+-- plugin ini hanya memasang parser + query.
+local languages = {
+  'bash',
+  'c',
+  'cpp',
+  'css',
+  'diff',
+  'dockerfile',
+  'gitignore',
+  'go',
+  'gomod',
+  'html',
+  'ini',
+  'kotlin',
+  'java',
+  'javascript',
+  'json',
+  'latex',
+  'lua',
+  'luadoc',
+  'make',
+  'markdown',
+  'markdown_inline',
+  'php',
+  'php_only',
+  'phpdoc',
+  'prisma',
+  'proto',
+  'python',
+  'rust',
+  'sql',
+  'typescript',
+  'tsx',
+  'vim',
+  'vimdoc',
+  'xml',
+  'yaml',
+  'zig',
+}
+
 return {
-  -- Highlight, edit, and navigate code
   'nvim-treesitter/nvim-treesitter',
-  dependencies = {
-    'nvim-treesitter/nvim-treesitter-textobjects',
-  },
+  branch = 'main',
+  lazy = false,
   build = ':TSUpdate',
   config = function()
-    vim.defer_fn(function()
-      require('nvim-treesitter.configs').setup {
-        -- Add languages to be installed here that you want installed for treesitter
-        ensure_installed = {
-          'bash',
-          'c',
-          'cpp',
-          'css',
-          'diff',
-          'dockerfile',
-          'gitignore',
-          'go',
-          'gomod',
-          'html',
-          'ini',
-          'kotlin',
-          'java',
-          'javascript',
-          'json',
-          'latex',
-          'lua',
-          'luadoc',
-          'make',
-          'markdown',
-          'markdown_inline',
-          'php',
-          'php_only',
-          'phpdoc',
-          'prisma',
-          'proto',
-          'python',
-          'rust',
-          'sql',
-          'typescript',
-          'tsx',
-          'vim',
-          'vimdoc',
-          'xml',
-          'yaml',
-          'zig',
-        },
+    require('nvim-treesitter').install(languages)
 
-        -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
-        auto_install = false,
-        -- Install languages synchronously (only applied to `ensure_installed`)
-        sync_install = false,
-        -- List of parsers to ignore installing
-        ignore_install = {},
-        -- You can specify additional Treesitter modules here: -- For example: -- playground = {--enable = true,-- },
-        modules = {},
-        highlight = { enable = true },
-        indent = { enable = true },
-        incremental_selection = {
-          enable = true,
-          keymaps = {
-            init_selection = '<c-space>',
-            node_incremental = '<c-space>',
-            scope_incremental = '<c-s>',
-            node_decremental = '<M-space>',
-          },
-        },
-        textobjects = {
-          select = {
-            enable = true,
-            lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
-            keymaps = {
-              -- You can use the capture groups defined in textobjects.scm
-              ['aa'] = '@parameter.outer',
-              ['ia'] = '@parameter.inner',
-              ['af'] = '@function.outer',
-              ['if'] = '@function.inner',
-              ['ac'] = '@class.outer',
-              ['ic'] = '@class.inner',
-            },
-          },
-          move = {
-            enable = true,
-            set_jumps = true, -- whether to set jumps in the jumplist
-            goto_next_start = {
-              [']m'] = '@function.outer',
-              [']]'] = '@class.outer',
-            },
-            goto_next_end = {
-              [']M'] = '@function.outer',
-              [']['] = '@class.outer',
-            },
-            goto_previous_start = {
-              ['[m'] = '@function.outer',
-              ['[['] = '@class.outer',
-            },
-            goto_previous_end = {
-              ['[M'] = '@function.outer',
-              ['[]'] = '@class.outer',
-            },
-          },
-        },
-      }
-    end, 0)
+    vim.api.nvim_create_autocmd('FileType', {
+      group = vim.api.nvim_create_augroup('treesitter-attach', { clear = true }),
+      callback = function(event)
+        local ok = pcall(vim.treesitter.start, event.buf)
+        if not ok then
+          return
+        end
+        vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+        vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+      end,
+    })
+
+    -- Incremental selection: sekarang pakai API bawaan Neovim
+    vim.keymap.set({ 'n', 'x', 'o' }, '<C-space>', function()
+      vim.treesitter.select 'parent'
+    end, { desc = 'Treesitter select parent' })
+    vim.keymap.set({ 'n', 'x', 'o' }, '<M-space>', function()
+      vim.treesitter.select 'child'
+    end, { desc = 'Treesitter select child' })
   end,
 }
