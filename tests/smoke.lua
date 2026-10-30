@@ -15,7 +15,7 @@ check('leader', vim.g.mapleader == ' ')
 check('number', vim.o.number and vim.o.relativenumber)
 check('indent', vim.o.expandtab and vim.o.tabstop == 4 and vim.o.shiftwidth == 4)
 check('scrolloff', vim.o.scrolloff == 10)
-check('timeoutlen', vim.o.timeoutlen == 300)
+check('timeoutlen', vim.o.timeoutlen == 2000, vim.o.timeoutlen)
 check('clipboard', vim.o.clipboard == '')
 
 -- 3. colorscheme
