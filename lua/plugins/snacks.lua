@@ -8,7 +8,6 @@ return {
     bufdelete = { enabled = true },
     notifier = { enabled = true, timeout = 2500 },
     words = { enabled = true },
-    scroll = { enabled = true },
     input = { enabled = true },
     session = { enabled = true },
   },
