@@ -49,6 +49,14 @@ return {
         which_key = true,
       },
     }
-    vim.cmd.colorscheme 'catppuccin-macchiato'
+    local function apply_background()
+      local ok, lines = pcall(vim.fn.readfile, vim.fn.expand '~/.config/theme')
+      local flavour = ((ok and lines[1]) or 'macchiato'):gsub('%s+$', '')
+      vim.o.background = flavour == 'latte' and 'light' or 'dark'
+      vim.cmd.colorscheme 'catppuccin'
+    end
+
+    apply_background()
+    vim.api.nvim_create_autocmd('FocusGained', { callback = apply_background })
   end,
 }
