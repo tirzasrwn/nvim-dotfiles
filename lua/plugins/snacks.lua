@@ -3,7 +3,7 @@ return {
   priority = 1000,
   lazy = false,
   opts = {
-    terminal = { enabled = true },
+    terminal = { enabled = true, win = { position = 'float' } },
     lazygit = { enabled = true },
     bufdelete = { enabled = true },
     notifier = { enabled = true, timeout = 2500 },
